@@ -1,0 +1,157 @@
+<!--Author: Eric ho-->
+<!--Date: 2017-04-13-10:00 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Upload.html</title>
+    <link rel="stylesheet" type="text/css" href="css/2.css">
+</head>
+<body onbeforeunload="return fun1()">
+<div id="Layer1" style="position:absolute; width:100%; height:100%; z-index:-1">
+    <img src="images/loginbg.jpg" height="100%" width="100%"/>
+</div>
+<script type="text/javascript">
+    function fun1()
+    {
+        confirm("您确定退出吗");
+        return false;
+    }
+</script>
+<h1 align="center">Welcome to the Upload Page</h1>
+
+<script>
+
+    if(!navigator.appName.match("IE8")) {
+        date=new Date();
+        if(date.getHours()<12&&date>6)
+            document.write("<h1 align='center'>Morning！</h1>");
+        else if(date.getHours()>=12&&date.getHours()<18)
+            document.write("<h1 align='center'>Afternoon!</h1>");
+        else if(date.getHours()>=18||date.getHours()<=6)
+            document.write("<h1 align='center'>Nite!</h1>");
+    }else {
+        document.write("<h1 align='center'>是IE浏览器");
+
+        date=new Date();
+        if(date.getHours()<12&&date>6)
+        document.write("Morning！</h1>");
+        else if(date.getHours()>=12&&date.getHours()<18)
+            document.write("Afternoon!</h1>");
+        else if(date.getHours()>=18||date.getHours()<=6)
+            document.write("Nite!</h1>");
+    }
+    document.write("<h1 align='center'>当前浏览器:" + navigator.appName+"<br>");
+    document.write("不是IE浏览器！请使用IE8或以上版本的浏览器浏览本网页</h1>");
+</script>
+
+    <script type="text/javascript">
+        function validate_Empty(field,alerttxt)
+        {
+            with (field)
+            {
+                if (value==null||value=="")
+                {
+                    alert(alerttxt);
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            }
+        }
+
+//        function validate_form()
+//        {
+//
+//
+//            var y=document.getElementById("username");
+//            if(y.value==''||y.value==null)
+//            {
+//                alert(y.toString()+"is null")
+//                return false
+//            }
+//
+//            alert("??????")
+//            return false
+//        }
+        function validate_form(thisform)
+        {
+            var str = document.getElementById("text_email").value;
+            with (thisform)
+            {
+
+                if (validate_Empty(name,"name must be filled out!")==false) {
+
+                    name.focus();
+                    return false;
+                }
+                if(validate_Empty(Tel,"Tel must be filled out!")==false) {
+                    Tel.focus();
+                    return false;
+                }
+                if(validate_Empty(email,"E-mail must be filled out!")==false) {
+                    email.focus();
+                    return false;
+                }
+                if(validate_Empty(message,"Message must be filled out!")==false) {
+                    message.focus();
+                    return false;
+                }
+                if(Tel.value.length!=11) {
+                    alert("Tel No. must have 11 numbers!");
+                    Tel.focus();
+                    return false;
+                }
+                if(str.search("@")==-1) {
+                    alert("Email Address lacks @");
+                    email.focus();
+                    return false;
+                }
+
+            }
+            return true;
+        }
+    </script>
+
+
+
+        <form name="Form1" id="ff" method="post" action="UploadServlet"  onsubmit="return validate_form(this)" >
+            <table cellpadding="5">
+            </table>
+
+            <label>
+                <span>Username :</span>
+                <input input type="text" name="name" id="username" placeholder="Your Username" />
+            </label>
+            <label>
+                <span>Password :</span>
+                <input type="password" name="password" id="pwd" placeholder="Your Password"/>
+            </label>
+            <label>
+                <span>Tel :</span>
+                <input  type="text" name="Tel"  id="Tel" placeholder="Your Tel" />
+            </label>
+            <label>
+                <span>Email :</span>
+                <input  type="text" name="email" id="text_email" placeholder="Your Email Address" />
+            </label>
+            <label>
+                <span>Message :</span>
+                <textarea id="message" name="message" placeholder="Your Message to Us"></textarea>
+            </label>
+
+            <label>
+                <span>&nbsp;</span>
+                <input type="submit" class="button" name="submit"  value="Send" />
+                <span>&nbsp;</span>
+                <input type="button" class="button" name="return"  value="Return"  onclick="location='index.jsp'"/>
+            </label>
+
+        </form>
+
+
+
+</body>
+</html>

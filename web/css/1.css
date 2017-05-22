@@ -1,0 +1,36 @@
+ p{
+      background: #0273dd;
+      color: black;
+      font-size: 60px;
+      font-family:黑体;
+        text-align: center;
+     font-weight: 900;
+ }
+ .ex{
+     color: #52cfeb;
+     font-size: 60px;
+     font-family:黑体;
+ }
+    body{
+        color: #4e3043;
+        font-family:Calibri;
+    }
+    table{
+        color: black;
+        font-size: 30px;
+        font-family:"Times New Roman";
+    }
+    td,th{
+        color: black;
+        text-align:center;
+        vertical-align:middle;
+    }
+    a{
+        font-size: 30px;
+        color: black;
+    }
+    form{
+        font-size: 40px;
+        font-family:Calibri;
+        text-align: center
+    }
